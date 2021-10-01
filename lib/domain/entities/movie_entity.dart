@@ -1,7 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'movie_detail_entity.dart';
 
+
+part 'movie_entity.g.dart';
+
+@JsonSerializable()
 class MovieEntity extends Equatable {
   final String posterPath;
   final int id;

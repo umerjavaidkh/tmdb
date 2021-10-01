@@ -1,85 +1,59 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import '../../domain/entities/movie_entity.dart';
 
+
+part 'movie_model.g.dart';
+
+@JsonSerializable()
 class MovieModel extends MovieEntity {
   final int id;
   final bool? video;
-  final int? voteCount;
-  final double? voteAverage;
+  final int? vote_count;
+  final double? vote_average;
   final String title;
-  final String? releaseDate;
-  final String? originalLanguage;
-  final String? originalTitle;
-  final List<int>? genreIds;
-  final String backdropPath;
+  final String? release_date;
+  final String? original_language;
+  final String? original_title;
+  final List<int>? genre_ids;
+  final String backdrop_path;
   final bool? adult;
   final String? overview;
-  final String posterPath;
+  final String poster_path;
   final double? popularity;
   final String? mediaType;
 
   MovieModel({
     required this.id,
     this.video,
-    this.voteCount,
-    this.voteAverage,
+    this.vote_count,
+    this.vote_average,
     required this.title,
-    this.releaseDate,
-    this.originalLanguage,
-    this.originalTitle,
-    this.genreIds,
-    required this.backdropPath,
+    this.release_date,
+    this.original_language,
+    this.original_title,
+    this.genre_ids,
+    required this.backdrop_path,
     this.adult,
     this.overview,
-    required this.posterPath,
+    required this.poster_path,
     this.popularity,
     this.mediaType,
   }) : super(
           id: id,
           title: title,
-          backdropPath: backdropPath,
-          posterPath: posterPath,
-          releaseDate: releaseDate,
-          voteAverage: voteAverage,
+          backdropPath: backdrop_path,
+          posterPath: poster_path,
+          releaseDate: release_date,
+          voteAverage: vote_average,
           overview: overview,
         );
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
-    return MovieModel(
-      popularity: json['popularity']?.toDouble() ?? 0.0,
-      voteCount: json['vote_count'],
-      video: json['video'],
-      posterPath: json['poster_path'] ?? '',
-      id: json['id'] ?? -1,
-      adult: json['adult'],
-      backdropPath: json['backdrop_path'] ?? '',
-      originalLanguage: json['original_language'],
-      originalTitle: json['original_title'],
-      genreIds: json['genre_ids'].cast<int>(),
-      title: json['title'] ?? '',
-      voteAverage: json['vote_average']?.toDouble() ?? 0.0,
-      overview: json['overview'],
-      releaseDate: json['release_date'],
-      mediaType: json['media_type'],
-    );
+    return _$MovieModelFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['video'] = this.video;
-    data['vote_count'] = this.voteCount;
-    data['vote_average'] = this.voteAverage;
-    data['title'] = this.title;
-    data['release_date'] = this.releaseDate;
-    data['original_language'] = this.originalLanguage;
-    data['original_title'] = this.originalTitle;
-    data['genre_ids'] = this.genreIds;
-    data['backdrop_path'] = this.backdropPath;
-    data['adult'] = this.adult;
-    data['overview'] = this.overview;
-    data['poster_path'] = this.posterPath;
-    data['popularity'] = this.popularity;
-    data['media_type'] = this.mediaType;
-    return data;
+    return _$MovieModelToJson(this);
   }
 }

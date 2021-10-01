@@ -1,27 +1,24 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import 'movie_model.dart';
 
-class MoviesResultModel {
-  late final List<MovieModel> movies;
+part 'movies_result_model.g.dart';
 
-  MoviesResultModel({required this.movies});
+@JsonSerializable()
+class MoviesResultModel {
+  late final int page;
+
+  late final List<MovieModel> results;
+  late final int total_pages;
+  late final int total_results;
+  MoviesResultModel({required this.results,required this.page,required this.total_pages,required this.total_results});
 
   factory MoviesResultModel.fromJson(Map<String, dynamic> json) {
-    var movies = List<MovieModel>.empty(growable: true);
-    if (json['results'] != null) {
-      json['results'].forEach((v) {
-        final movieModel = MovieModel.fromJson(v);
-        if (_isValidMovie(movieModel)) {
-          movies.add(movieModel);
-        }
-      });
-    }
-    return MoviesResultModel(movies: movies);
+    return _$MoviesResultModelFromJson(json);
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['results'] = this.movies.map((v) => v.toJson()).toList();
-    return data;
+   return _$MoviesResultModelToJson(this);
   }
 }
 

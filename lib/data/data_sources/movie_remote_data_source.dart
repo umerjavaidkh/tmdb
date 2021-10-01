@@ -1,7 +1,10 @@
-import '../core/api_client.dart';
+import 'package:dio/dio.dart';
+import 'package:tmdb/data/core/abstract_client.dart';
+import 'package:tmdb/data/core/api_constants.dart';
+
 import '../models/movie_detail_model.dart';
 import '../models/movie_model.dart';
-import '../models/movies_result_model.dart';
+
 
 
 abstract class MovieRemoteDataSource {
@@ -13,29 +16,26 @@ abstract class MovieRemoteDataSource {
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
-  final ApiClient _client;
 
-  MovieRemoteDataSourceImpl(this._client);
+  final RestClient outClient;
 
+  MovieRemoteDataSourceImpl(this.outClient);
 
   @override
   Future<List<MovieModel>> getPopular() async {
-    final response = await _client.get('movie/popular');
-    final movies = MoviesResultModel.fromJson(response).movies;
-    print(movies);
-    return movies;
+    final response  = await outClient.getPopularMovies();
+    return response.results;
   }
-
 
   @override
   Future<MovieDetailModel> getMovieDetail(int id) async {
-    final response = await _client.get('movie/$id');
-    final movie = MovieDetailModel.fromJson(response);
+    final movie  = await outClient.getMovieDetails(id);
     if (_isValidMovieDetail(movie)) {
       return movie;
     }
     throw Exception();
   }
+
 
   bool _isValidMovieDetail(MovieDetailModel movie) {
     return movie.id != -1 &&
@@ -44,13 +44,10 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
   }
 
 
-
   @override
   Future<List<MovieModel>> getSearchedMovies(String searchTerm) async {
-    final response = await _client.get('search/movie', params: {
-      'query': searchTerm,
-    });
-    final movies = MoviesResultModel.fromJson(response).movies;
-    return movies;
+    final response  = await outClient.searchMovies(searchTerm);
+    return response.results;
   }
+
 }

@@ -21,8 +21,13 @@ class MovieRepositoryImpl extends MovieRepository {
   @override
   Future<Either<AppError, List<MovieModel>>> getPopular() async {
     try {
-      final movies = await remoteDataSource.getPopular();
-      return Right(movies);
+      try {
+        final movies = await remoteDataSource.getPopular();
+        return Right(movies);
+      } catch (e) {
+        print(e);
+      }
+      return Left(AppError(AppErrorType.api));
     } on SocketException {
       return Left(AppError(AppErrorType.network));
     } on Exception {
