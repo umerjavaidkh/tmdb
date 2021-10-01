@@ -28,7 +28,7 @@ abstract class RestClient {
   Future<MoviesResultModel> getPopularMovies();
 
   @GET(Apis.moviesDetails)
-  Future<MovieDetailModel> getMovieDetails(@Path("id") int postId);
+  Future<MovieDetailModel?>? getMovieDetails(@Path("id") int postId);
 
   @GET(Apis.searchMovies)
   Future<MoviesResultModel> searchMovies(@Query("query") String searchTerm);

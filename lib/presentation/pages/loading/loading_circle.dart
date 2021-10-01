@@ -13,7 +13,7 @@ class LoadingCircle extends StatelessWidget {
       width: size,
       height: size,
       child:FlareActor(
-        'assets/animations/loading_circle.flr',
+        'assets/animations/progress_bar.flr',
         color: Colors.tealAccent,
         animation: 'load',
         snapToEnd: true,
