@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wiredash/wiredash.dart';
+
 
 import '../../common/constants/size_constants.dart';
 import '../../common/constants/translation_constants.dart';
@@ -39,10 +39,7 @@ class AppErrorWidget extends StatelessWidget {
                 onPressed: onPressed,
                 text: TranslationConstants.retry,
               ),
-              Button(
-                onPressed: () => Wiredash.of(context)?.show(),
-                text: TranslationConstants.feedback,
-              ),
+
             ],
           ),
         ],
