@@ -41,6 +41,7 @@ dependencies:
   flare_flutter: ^3.0.0
 
 
+
   retrofit: ^2.0.0
   dio: ^4.0.0
   built_value: ^8.1.2

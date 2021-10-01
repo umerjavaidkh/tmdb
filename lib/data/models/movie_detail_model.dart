@@ -73,7 +73,7 @@ class MovieDetailModel extends MovieDetailEntity {
       budget: json['budget'],
       genres: _genres(json),
       homepage: json['homepage'],
-      id: json['id'] ?? -1,
+      id: json['id'].toInt() ?? -1,
       imdbId: json['imdb_id'],
       originalLanguage: json['original_language'],
       originalTitle: json['original_title'],

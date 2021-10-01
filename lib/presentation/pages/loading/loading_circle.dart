@@ -1,3 +1,4 @@
+
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
@@ -11,11 +12,12 @@ class LoadingCircle extends StatelessWidget {
     return SizedBox(
       width: size,
       height: size,
-      child: FlareActor(
+      child:FlareActor(
         'assets/animations/loading_circle.flr',
+        color: Colors.tealAccent,
         animation: 'load',
         snapToEnd: true,
-      ),
+      )
     );
   }
 }

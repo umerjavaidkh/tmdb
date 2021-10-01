@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:tmdb/data/core/abstract_client.dart';
 import 'package:tmdb/data/core/api_constants.dart';
@@ -30,6 +32,8 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource {
   @override
   Future<MovieDetailModel> getMovieDetail(int id) async {
     final movie  = await outClient.getMovieDetails(id);
+    var josnString = movie.toJson();
+    var plainJosn = json.encode(josnString);
     if (_isValidMovieDetail(movie)) {
       return movie;
     }
