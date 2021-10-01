@@ -1,0 +1,15 @@
+{
+    "appName": "TMDB",
+    "favoriteMovies": "Peliculas favoritas",
+    "language": "Idioma",
+    "popular": "POPULAR",
+    "okay": "Bueno",
+    "retry": "Rever",
+    "somethingWentWrong": "Algo salió mal...",
+    "checkNetwork": "Verifique su conexión de red y presione el botón Reintentar o colóquelo como error presionando el botón Comentarios.",
+    "noMovies": "Lo siento, no hay películas en esta sección.",
+    "noMoviesSearched": "No se encontraron películas, busque con otra palabra",
+    "noNetwork": "No hay conexion de red",
+    "sessionDenied": "Sesión denegada",
+    "themeText": "Tema"
+}
