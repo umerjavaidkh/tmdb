@@ -2,13 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tmdb/domain/entities/no_params.dart';
-import 'package:tmdb/domain/usecases/get_popular.dart';
-
 import '../../../domain/entities/app_error.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../../domain/entities/movie_search_params.dart';
-import '../../../domain/usecases/search_movies.dart';
+import '../../../domain/usecases/search_movies_usecase.dart';
 import '../loading/loading_cubit.dart';
 
 part 'search_movie_state.dart';

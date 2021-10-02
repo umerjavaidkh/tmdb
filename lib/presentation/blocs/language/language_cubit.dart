@@ -6,8 +6,8 @@ import 'package:equatable/equatable.dart';
 import '../../../common/constants/languages.dart';
 import '../../../domain/entities/language_entity.dart';
 import '../../../domain/entities/no_params.dart';
-import '../../../domain/usecases/get_preferred_language.dart';
-import '../../../domain/usecases/update_language.dart';
+import '../../../domain/usecases/get_preferred_language_usecase.dart';
+import '../../../domain/usecases/update_language_usecase.dart';
 
 part 'language_state.dart';
 

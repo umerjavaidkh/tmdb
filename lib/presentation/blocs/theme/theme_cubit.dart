@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:tmdb/domain/entities/no_params.dart';
-import 'package:tmdb/domain/usecases/get_preferred_theme.dart';
-import 'package:tmdb/domain/usecases/update_theme.dart';
+import 'package:tmdb/domain/usecases/get_preferred_theme_usecase.dart';
+import 'package:tmdb/domain/usecases/update_theme_usecase.dart';
 
 
 enum Themes { light, dark }

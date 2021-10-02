@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:tmdb/domain/usecases/get_movie_detail_usecase.dart';
 
 import '../../../domain/entities/app_error.dart';
 import '../../../domain/entities/movie_detail_entity.dart';
 import '../../../domain/entities/movie_params.dart';
-import '../../../domain/usecases/get_movie_detail.dart';
 import '../loading/loading_cubit.dart';
 
 
